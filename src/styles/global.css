@@ -19,12 +19,12 @@ body { margin: 0; color: var(--color-ink); background-color: var(--color-paper);
 a { color: inherit; }
 ::selection { background: var(--color-orange); color: #fff; }
 :focus-visible { outline: 3px solid var(--color-orange); outline-offset: 4px; }
-.shell { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; }
-.eyebrow { font-family: var(--font-sans); font-weight: 700; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
-.display { font-size: clamp(3.4rem, 10vw, 8.6rem); line-height: .88; letter-spacing: -.045em; font-weight: 800; }
-.intro-title { font-size: clamp(3.5rem, 7vw, 6.6rem); line-height: .92; letter-spacing: -.04em; font-weight: 800; }
-.section-title { font-size: clamp(2.25rem, 5vw, 4.75rem); line-height: .95; letter-spacing: -.03em; font-weight: 800; }
-.body-copy { font-family: var(--font-sans); font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.6; font-weight: 400; }
+.shell { width: min(1040px, calc(100% - 3rem)); margin-inline: auto; }
+.eyebrow { font-family: var(--font-sans); font-weight: 700; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+.display { font-size: clamp(2.5rem, 7vw, 5.25rem); line-height: .95; letter-spacing: -.035em; font-weight: 800; }
+.intro-title { font-size: clamp(2.5rem, 5.5vw, 4.25rem); line-height: 1; letter-spacing: -.03em; font-weight: 800; }
+.section-title { font-size: clamp(1.85rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -.025em; font-weight: 800; }
+.body-copy { font-family: var(--font-sans); font-size: clamp(1rem, 1.4vw, 1.1rem); line-height: 1.6; font-weight: 400; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border: 1px solid var(--color-line); border-radius: 999px; padding: .85rem 1.2rem; background: #ffffff; font: 700 .8rem var(--font-sans); text-transform: uppercase; letter-spacing: .04em; color: var(--color-ink); transition: border-color .2s, background-color .2s, color .2s; }
 .button:hover { border-color: var(--color-ink); background: rgba(0,0,0,.04); }
 .button-primary, .button-dark { border-color: var(--color-ink); background: var(--color-ink); color: #fff; }
@@ -39,10 +39,10 @@ a { color: inherit; }
 .social-icon svg { width: 1.05rem; height: 1.05rem; }
 .social-icon:hover { opacity: 1; background: rgba(0,0,0,.06); color: var(--color-ink); }
 .content-section { position: relative; padding-block: clamp(6rem, 11vw, 10rem); }
-.content-section::before { content: ''; position: absolute; top: 0; left: 50%; width: min(1180px, calc(100% - 2rem)); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, var(--color-line), transparent); }
+.content-section::before { content: ''; position: absolute; top: 0; left: 50%; width: min(1040px, calc(100% - 3rem)); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, var(--color-line), transparent); }
 .prose { max-width: 760px; }
-.prose h2 { margin-top: 3rem; font-size: 2rem; letter-spacing: -.03em; }
-.prose p, .prose li { font-family: var(--font-sans); font-size: 1.1rem; line-height: 1.7; }
+.prose h2 { margin-top: 2.5rem; font-size: 1.5rem; letter-spacing: -.025em; }
+.prose p, .prose li { font-family: var(--font-sans); font-size: 1rem; line-height: 1.7; }
 .prose a { text-decoration: underline; text-decoration-color: var(--color-purple); text-decoration-thickness: 2px; }
 .maker-surface { position: relative; }
 @keyframes section-fade { from { opacity: .15; transform: translateY(2rem); } to { opacity: 1; transform: translateY(0); } }
