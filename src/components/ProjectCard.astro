@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { project: CollectionEntry<'projects'>; index?: number; }
+const { project, index = 0 } = Astro.props;
+const colors: Record<'purple' | 'blue' | 'orange', string> = { purple: 'bg-purple', blue: 'bg-blue', orange: 'bg-orange' };
+const color = colors[project.data.accent];
+---
+<article class:list={["group grid min-h-[28rem] overflow-hidden border border-ink", index % 3 === 0 ? "md:col-span-2 md:grid-cols-[1.15fr_.85fr]" : ""]}>
+  <div class:list={[color,"relative flex min-h-64 items-end overflow-hidden p-6 text-paper"]}>
+    <span class="absolute -right-8 -top-16 font-mono text-[13rem] leading-none opacity-15">{String(index + 1).padStart(2,'0')}</span>
+    <div><p class="eyebrow">{project.data.status} · {project.data.year}</p><div class="mt-3 text-4xl font-bold leading-none tracking-[-.055em]">{project.data.title}</div></div>
+  </div>
+  <div class="flex flex-col justify-between gap-10 bg-paper p-6">
+    <p class="text-lg leading-7">{project.data.summary}</p>
+    <div><p class="mb-5 font-mono text-xs uppercase text-muted">{project.data.topics.slice(0,2).join(' · ')}</p><a class="font-mono text-xs font-bold uppercase underline decoration-2 underline-offset-4" href={`/projects/${project.id}/`}>Open project →</a></div>
+  </div>
+</article>

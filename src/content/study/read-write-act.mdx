@@ -1,0 +1,31 @@
+---
+title: "READ / WRITE / ACT"
+summary: "A practical mental model for understanding how language-model systems move from interpreting context to changing the world through tools."
+type: "note"
+course: "Text Mining"
+module: "Foundation Models"
+topics: ["LLMs", "Agents", "Tool use"]
+academicYear: "2026–27"
+semester: "1"
+status: "published"
+difficulty: "introductory"
+order: 2
+publishedDate: 2026-09-17
+updatedDate: 2026-09-17
+---
+## The model
+
+**READ** systems interpret existing information. **WRITE** systems generate a new representation. **ACT** systems use tools or interfaces to change an external state.
+
+The distinction is useful because a fluent answer and a reliable action require different controls. Reading asks whether the right context was understood. Writing asks whether the output is grounded and useful. Acting asks whether permissions, side effects and recovery are designed safely.
+
+## Why it matters
+
+“Agentic” is not a visual style or a synonym for a chatbot. It describes a system boundary: the model can select and invoke capabilities that affect something outside the conversation.
+
+## Working questions
+
+- What can the system observe?
+- What is it allowed to change?
+- Which actions require confirmation?
+- How is an error detected and reversed?

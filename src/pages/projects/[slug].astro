@@ -1,0 +1,9 @@
+---
+import { getCollection, render } from 'astro:content'; import BaseLayout from '../../layouts/BaseLayout.astro';
+export async function getStaticPaths(){return (await getCollection('projects')).map((project)=>({params:{slug:project.id},props:{project}}));}
+const { project } = Astro.props; const { Content } = await render(project);
+---
+<BaseLayout title={`${project.data.title} — Gennaro Basile`} description={project.data.summary}>
+  <header class="border-b border-ink bg-ink py-20 text-paper"><div class="shell"><a href="/projects" class="eyebrow text-orange">← All projects</a><p class="eyebrow mt-16">{project.data.status} · {project.data.year}</p><h1 class="mt-5 max-w-5xl text-[clamp(3.5rem,10vw,8rem)] font-bold leading-[.88] tracking-[-.07em]">{project.data.title}</h1><p class="body-copy mt-9 max-w-3xl text-white/75">{project.data.summary}</p></div></header>
+  <div class="shell grid gap-12 py-16 lg:grid-cols-[15rem_1fr]"><aside><p class="eyebrow text-muted">Stack</p><ul class="mt-4 space-y-2 font-mono text-xs">{project.data.stack.map((x)=><li>{x}</li>)}</ul><p class="eyebrow mt-10 text-muted">Topics</p><ul class="mt-4 space-y-2 font-mono text-xs">{project.data.topics.map((x)=><li>{x}</li>)}</ul></aside><article class="prose"><Content /></article></div>
+</BaseLayout>

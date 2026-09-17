@@ -1,0 +1,8 @@
+---
+const { item } = Astro.props;
+const href = item.data.type === 'course' ? `/study/${item.id}/` : `/study/text-mining/${item.id}/`;
+---
+<article class="flex h-full flex-col justify-between border border-line p-5 transition hover:-translate-y-1 hover:border-ink">
+  <div><div class="eyebrow text-purple">{item.data.type} · {item.data.status}</div><h3 class="mt-5 text-2xl font-semibold tracking-[-.035em]">{item.data.title}</h3><p class="mt-3 text-sm leading-6 text-muted">{item.data.summary}</p></div>
+  <div class="mt-8 flex items-end justify-between"><span class="font-mono text-xs uppercase">{item.data.course}</span><a href={href} class="font-mono text-xs font-bold" aria-label={`Read ${item.data.title}`}>↗</a></div>
+</article>

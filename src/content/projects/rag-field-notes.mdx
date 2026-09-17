@@ -1,0 +1,39 @@
+---
+title: "RAG Field Notes"
+summary: "A transparent retrieval-augmented generation experiment focused on evaluation, failure modes and what changes when the retrieval layer is treated as a system—not a demo."
+status: "in progress"
+year: 2026
+topics: ["NLP / LLMs", "Retrieval", "Evaluation"]
+stack: ["Python", "Embeddings", "Vector search"]
+featured: true
+accent: "purple"
+relatedCourse: "Text Mining"
+order: 1
+publishedDate: 2026-09-17
+updatedDate: 2026-09-17
+---
+## Problem
+
+Many RAG demos stop when a model returns a plausible answer. This project asks a harder question: how can retrieval quality, grounding and failure modes be made visible enough to improve the system?
+
+## Why I am building it
+
+Text Mining introduced the components. Building the pipeline makes their interactions concrete: chunking affects recall, retrieval affects context, and evaluation changes what “working” means.
+
+## What I am building
+
+The first iteration will include a small documented corpus, a reproducible ingestion pipeline, inspectable retrieval results and an evaluation notebook. This page intentionally describes work in progress; no final metrics are claimed yet.
+
+## Planned architecture
+
+`documents → chunking → embeddings → vector index → retrieval → prompt context → answer → evaluation`
+
+## Current status
+
+Scoping the corpus and defining a baseline evaluation set. Repository and results will be linked when they are ready.
+
+## What I expect to learn
+
+- How chunk size and overlap influence retrieval.
+- Where semantic similarity produces convincing but irrelevant context.
+- How to separate retrieval errors from generation errors.

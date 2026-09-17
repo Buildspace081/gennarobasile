@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Search — Gennaro Basile" description="Search Gennaro Basile’s projects, notes and notebooks.">
+  <header class="shell py-20"><p class="eyebrow text-purple">Find a project, concept or notebook</p><h1 class="display mt-6">Search.</h1></header><section class="shell min-h-[45vh] pb-24"><div id="search"></div><noscript>Search requires JavaScript. Browse <a href="/projects">Projects</a> or the <a href="/study">Study Library</a>.</noscript></section>
+  <script is:inline type="module">
+    try { const { PagefindUI } = await import('/pagefind/pagefind-ui.js'); new PagefindUI({ element:'#search', showSubResults:true, showImages:false, excerptLength:20 }); }
+    catch { const el=document.querySelector('#search'); if(el) el.innerHTML='<p class="body-copy">Search becomes available after the production build. Browse Projects or Study while developing.</p>'; }
+  </script>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+</BaseLayout>

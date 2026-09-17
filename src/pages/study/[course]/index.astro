@@ -1,0 +1,9 @@
+---
+import { getCollection, render } from 'astro:content'; import BaseLayout from '../../../layouts/BaseLayout.astro'; import ResourceCard from '../../../components/ResourceCard.astro';
+export async function getStaticPaths(){const courses=(await getCollection('study')).filter(x=>x.data.type==='course'); return courses.map(course=>({params:{course:course.id},props:{course}}));}
+const { course }=Astro.props; const { Content }=await render(course); const related=(await getCollection('study')).filter(x=>x.data.course===course.data.course&&x.id!==course.id);
+---
+<BaseLayout title={`${course.data.title} — Study — Gennaro Basile`} description={course.data.summary}>
+  <header class="bg-blue py-20 text-paper"><div class="shell"><p class="eyebrow">Study / course / 2026–27</p><h1 class="display mt-8">{course.data.title}</h1><p class="body-copy mt-8 max-w-3xl text-white/85">{course.data.summary}</p></div></header>
+  <div class="shell grid gap-14 py-16 lg:grid-cols-[15rem_1fr]"><aside class="lg:sticky lg:top-24 lg:self-start"><p class="eyebrow text-muted">On this page</p><ol class="mt-5 space-y-3 font-mono text-xs"><li>01 / Overview</li><li>02 / Learning path</li><li>03 / Resources</li></ol></aside><div><article class="prose"><Content/></article><section class="mt-16"><h2 class="text-3xl font-semibold tracking-tight">Course resources</h2><div class="mt-6 grid gap-4 md:grid-cols-2">{related.map(item=><ResourceCard item={item}/>)}</div></section></div></div>
+</BaseLayout>

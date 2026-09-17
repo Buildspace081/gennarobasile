@@ -1,0 +1,17 @@
+---
+const homeSections = [['/#about','About'],['/#experience','Experience'],['/#software','Software'],['/#hardware','Hardware'],['/#byte-ml','Byte.ml'],['/#buildspace081','Buildspace081']];
+---
+<header class="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur">
+  <div class="shell flex h-16 items-center justify-between">
+    <a href="/" class="text-lg font-bold tracking-[-.045em]" aria-label="Gennaro Basile home">gennarobasile.com</a>
+    <nav aria-label="Primary navigation" class="hidden items-center gap-5 lg:flex">
+      {homeSections.map(([href,label]) => <a href={href} class="font-mono text-xs uppercase tracking-wide hover:text-purple">{label}</a>)}
+    </nav>
+    <details class="relative lg:hidden">
+      <summary class="cursor-pointer list-none border border-ink px-3 py-2 font-mono text-xs uppercase">Menu</summary>
+      <nav aria-label="Mobile navigation" class="absolute right-0 top-12 flex w-56 flex-col border border-ink bg-paper p-3 shadow-[5px_5px_0_#0b1117]">
+        {homeSections.map(([href,label]) => <a href={href} class="border-b border-line px-3 py-3 font-mono text-xs uppercase">{label}</a>)}
+      </nav>
+    </details>
+  </div>
+</header>
