@@ -1,6 +1,6 @@
 # Gennaro Basile website handoff
 
-Last updated: 2026-09-17 — Opening layout redesigned with top navigation/contact actions and a two-column portrait/About hero.
+Last updated: 2026-09-17 — Visual identity switched from the dark cutting-mat theme to a bright, uniform-white theme with the Inter typeface, and the header now shows fully decomposed navigation plus email/GitHub/LinkedIn/Substack icons.
 
 ## Current state
 
@@ -31,6 +31,8 @@ The repository contains a working static personal-brand MVP for `gennarobasile.c
 - Canonical site metadata targets `https://gennarobasile.com`.
 - The first viewport reserves the left column for Gennaro's future portrait and starts the About introduction on the right; mobile stacks the portrait first.
 - The header shows navigation beside the name and confirmed GitHub/contact actions on the right. Unconfirmed personal social links were removed rather than publishing generic destinations.
+- The header now uses confirmed LinkedIn, Substack and email links plus a GitHub placeholder, as icon-only buttons at the far right; primary navigation stays fully inline (no dropdown) down to the `xl` breakpoint.
+- The site moved from the dark cutting-mat theme to a uniform white background with no grid texture, using Inter as the single site-wide typeface (headings, body, buttons and navigation). The accent palette is now: deep teal (`--color-blue`), warm amber/rust (`--color-orange`) and muted terracotta/clay (`--color-purple`, no violet). All colour and font changes are centralised in `global.css`; components consume them through Tailwind theme tokens, so no per-component colour edits were needed except fixing a few hardcoded dark-theme hex values (`ExperienceTabs` selected-tab background, footer background, `theme-color` meta).
 
 ## Decisions and rationale
 

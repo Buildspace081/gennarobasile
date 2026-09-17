@@ -7,7 +7,7 @@ const experiences = [
 ---
 <div class="experience-tabs grid gap-6 md:grid-cols-[12rem_1fr]" data-experience-tabs>
   <div role="tablist" aria-label="Experience" aria-orientation="vertical" class="flex gap-2 overflow-x-auto md:flex-col">
-    {experiences.map((item,index) => <button type="button" id={`tab-${item.id}`} role="tab" aria-controls={`panel-${item.id}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1} data-tab={item.id} class="whitespace-nowrap border-l-2 border-line px-4 py-3 text-left font-mono text-xs uppercase text-muted hover:text-ink aria-selected:border-orange aria-selected:bg-[#17463e] aria-selected:text-ink">{item.label}</button>)}
+    {experiences.map((item,index) => <button type="button" id={`tab-${item.id}`} role="tab" aria-controls={`panel-${item.id}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1} data-tab={item.id} class="whitespace-nowrap border-l-2 border-line px-4 py-3 text-left font-mono text-xs uppercase text-muted hover:text-ink aria-selected:border-orange aria-selected:bg-[#f5efe3] aria-selected:text-ink">{item.label}</button>)}
   </div>
   <div class="surface min-h-72 p-7">
     {experiences.map((item,index) => <article id={`panel-${item.id}`} role="tabpanel" aria-labelledby={`tab-${item.id}`} hidden={index !== 0} tabindex="0" data-panel={item.id}><p class="eyebrow text-purple">{item.eyebrow}</p><h3 class="mt-5 text-3xl font-semibold tracking-[-.04em]">{item.title}</h3><p class="mt-2 font-mono text-sm text-muted">{item.organisation}</p><p class="body-copy mt-8 max-w-2xl">{item.copy}</p></article>)}

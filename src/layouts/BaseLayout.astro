@@ -10,15 +10,17 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" /><meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} /><link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" />
-    <meta name="theme-color" content="#0B1117" /><link rel="icon" href="/favicon.svg" /><title>{title}</title>
+    <meta name="theme-color" content="#ffffff" /><link rel="icon" href="/favicon.svg" /><title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
     <a href="#main" class="fixed left-3 top-3 z-50 -translate-y-24 bg-paper px-4 py-3 font-mono text-sm focus:translate-y-0">Skip to content</a>
     <Header />
     <main id="main"><slot /></main>
-    <footer id="contact" class="mt-24 scroll-mt-20 border-t border-line bg-[#071f1b]/95 py-10 text-ink">
+    <footer id="contact" class="mt-24 scroll-mt-20 border-t border-line bg-[#faf9f6] py-10 text-ink">
       <div class="shell flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-        <div><div class="text-4xl font-bold tracking-[-.07em]">Gennaro Basile</div><p class="mt-2 max-w-md text-sm text-white/60">Engineer, AI builder and founder in Naples.</p></div>
+        <div><div class="text-4xl font-bold tracking-[-.04em]">Gennaro Basile</div><p class="mt-2 max-w-md text-sm text-muted">Engineer, AI builder and founder in Naples.</p></div>
         <nav aria-label="Social links" class="flex flex-wrap gap-5 font-mono text-xs uppercase"><a href="https://github.com/Buildspace081/gennarobasile" rel="me">GitHub ↗</a><a href="https://buildspace081.com/">Buildspace081 ↗</a></nav>
       </div>
     </footer>
