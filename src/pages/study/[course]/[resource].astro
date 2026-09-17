@@ -4,6 +4,6 @@ export async function getStaticPaths(){const items=(await getCollection('study')
 const { item }=Astro.props; const { Content }=await render(item);
 ---
 <BaseLayout title={`${item.data.title} — Gennaro Basile`} description={item.data.summary}>
-  <header class="shell py-16"><p class="eyebrow text-purple"><a href="/study">Study</a> / <a href="/study/text-mining">Text Mining</a> / {item.data.type}</p><h1 class="mt-8 max-w-4xl text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[.9] tracking-[-.065em]">{item.data.title}</h1><p class="body-copy mt-8 max-w-3xl">{item.data.summary}</p><div class="mt-8 flex flex-wrap gap-2">{item.data.topics.map((x)=><span class="border border-line px-2 py-1 font-mono text-xs uppercase">{x}</span>)}</div></header>
+  <header class="shell py-16"><p class="eyebrow"><a href="/study">Study</a> / <a href="/study/text-mining">Text Mining</a> / {item.data.type}</p><h1 class="mt-8 max-w-4xl text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[.9] tracking-[-.065em]">{item.data.title}</h1><p class="body-copy mt-8 max-w-3xl">{item.data.summary}</p><div class="mt-8 flex flex-wrap gap-2">{item.data.topics.map((x)=><span class="border border-line px-2 py-1 font-mono text-xs uppercase">{x}</span>)}</div></header>
   <div class="shell border-t border-line py-14"><article class="prose"><Content/></article></div>
 </BaseLayout>

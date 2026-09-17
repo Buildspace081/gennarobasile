@@ -3,6 +3,6 @@ import { getCollection } from 'astro:content'; import BaseLayout from '../../lay
 const projects = (await getCollection('projects')).sort((a,b)=>a.data.order-b.data.order);
 ---
 <BaseLayout title="Projects — Gennaro Basile" description="AI, machine learning, computer vision and robotics projects by Gennaro Basile.">
-  <header class="shell py-20"><p class="eyebrow text-purple">Projects</p><h1 class="display mt-6">Things I build.</h1><p class="body-copy mt-8 max-w-2xl">Case studies first. Experiments and future work are labelled clearly.</p></header>
+  <header class="shell py-20"><p class="eyebrow">Projects</p><h1 class="display mt-6">Things I build.</h1><p class="body-copy mt-8 max-w-2xl">Case studies first. Experiments and future work are labelled clearly.</p></header>
   <section class="shell pb-24"><div class="grid gap-5 md:grid-cols-2">{projects.map((project,index)=><ProjectCard project={project} index={index}/>)}</div></section>
 </BaseLayout>
