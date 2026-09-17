@@ -16,10 +16,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <a href="#main" class="fixed left-3 top-3 z-50 -translate-y-24 bg-paper px-4 py-3 font-mono text-sm focus:translate-y-0">Skip to content</a>
     <Header />
     <main id="main"><slot /></main>
-    <footer class="mt-24 border-t border-line bg-[#071f1b]/95 py-10 text-ink">
+    <footer id="contact" class="mt-24 scroll-mt-20 border-t border-line bg-[#071f1b]/95 py-10 text-ink">
       <div class="shell flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div><div class="text-4xl font-bold tracking-[-.07em]">Gennaro Basile</div><p class="mt-2 max-w-md text-sm text-white/60">Engineer, AI builder and founder in Naples.</p></div>
-        <nav aria-label="Social links" class="flex flex-wrap gap-5 font-mono text-xs uppercase"><a href="https://github.com/" rel="me">GitHub ↗</a><a href="https://linkedin.com/" rel="me">LinkedIn ↗</a><a href="https://instagram.com/" rel="me">Instagram ↗</a><a href="https://buildspace081.com/">Buildspace081 ↗</a></nav>
+        <nav aria-label="Social links" class="flex flex-wrap gap-5 font-mono text-xs uppercase"><a href="https://github.com/Buildspace081/gennarobasile" rel="me">GitHub ↗</a><a href="https://buildspace081.com/">Buildspace081 ↗</a></nav>
       </div>
     </footer>
   </body>

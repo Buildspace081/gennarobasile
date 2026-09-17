@@ -1,6 +1,6 @@
 # Gennaro Basile website handoff
 
-Last updated: 2026-09-17 — Project identity and local repository folder renamed from `byteml` to `gennarobasile`.
+Last updated: 2026-09-17 — Opening layout redesigned with top navigation/contact actions and a two-column portrait/About hero.
 
 ## Current state
 
@@ -29,6 +29,8 @@ The repository contains a working static personal-brand MVP for `gennarobasile.c
 - Experience now uses accessible keyboard-operable tabs for Data Science, automotive engineering and Buildspace081.
 - Byte.ml and Buildspace081 are concise, balanced homepage mentions. Byte.ml links to Instagram; selected video posters may be added later.
 - Canonical site metadata targets `https://gennarobasile.com`.
+- The first viewport reserves the left column for Gennaro's future portrait and starts the About introduction on the right; mobile stacks the portrait first.
+- The header shows navigation beside the name and confirmed GitHub/contact actions on the right. Unconfirmed personal social links were removed rather than publishing generic destinations.
 
 ## Decisions and rationale
 
