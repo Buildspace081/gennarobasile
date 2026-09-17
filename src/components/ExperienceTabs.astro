@@ -1,13 +1,13 @@
 ---
-interface Role { title: string; dateRange: string; points: string[]; }
-interface Experience { id: string; label: string; eyebrow: string; title: string; organisation: string; dateRange: string; points: string[]; roles?: Role[]; }
+interface Role { title: string; dateRange: string; points: string[]; learned?: string; }
+interface Experience { id: string; label: string; eyebrow: string; title: string; organisation: string; dateRange: string; points: string[]; learned?: string; roles?: Role[]; }
 
 const experiences: Experience[] = [
-  { id: 'data-science', label: 'Data Science', eyebrow: 'Naples, Italy', title: 'MSc in Data Science', organisation: 'University of Naples Federico II', dateRange: '2025 – Present', points: ['Statistical learning, machine learning, big data systems and advanced programming.'] },
-  { id: 'stellantis', label: 'Stellantis', eyebrow: 'Chelsea Proving Ground & Auburn Hills, USA', title: 'Powertrain Validation Engineer', organisation: 'Stellantis (via Teoresi Inc)', dateRange: 'Jan 2025 – Sep 2025', points: ['Designed and executed test campaigns for electric and hybrid vehicle systems.', 'Analyzed large volumes of performance data to diagnose issues and support engineering decisions.'], roles: [{ title: 'OBD Calibration Engineer', dateRange: 'Aug 2023 – Dec 2024', points: ['Owned end-to-end calibration projects for electrified powertrain systems.', 'Coordinated across multiple engineering disciplines to meet strict release deadlines.'] }] },
-  { id: 'maserati', label: 'Maserati', eyebrow: 'Modena, Italy', title: 'Design Release Engineer — Electronic Brake Module', organisation: 'Maserati (via Teoresi SpA)', dateRange: 'Mar 2022 – Aug 2023', points: ['Led the technical strategy for an electronic brake module.', 'Defined requirements and managed the full supplier relationship lifecycle from concept to production.'] },
-  { id: 'ecoindustria', label: 'Ecoindustria', eyebrow: 'Turin, Italy', title: 'Commissioning Engineer — Freight Cars', organisation: 'Ecoindustria Srl', dateRange: 'May 2021 – Nov 2021', points: ['Managed commissioning of freight rail vehicles.', 'Oversaw technical documentation and on-site testing for safety and performance standards.'] },
-  { id: 'mechanical-engineering', label: 'Mechanical Eng.', eyebrow: 'Naples, Italy', title: 'BSc in Mechanical Engineering', organisation: 'University of Naples Federico II', dateRange: '2020', points: ['Foundational training in mechanical systems, ahead of a move into automotive validation.'] },
+  { id: 'data-science', label: 'Data Science', eyebrow: 'Naples, Italy', title: 'MSc in Data Science', organisation: 'University of Naples Federico II', dateRange: '2025 – Present', points: ['Statistical learning, machine learning, big data systems and advanced programming.'], learned: 'Turning years of hands-on engineering judgement into rigorous statistical reasoning and code.' },
+  { id: 'stellantis', label: 'Stellantis', eyebrow: 'Chelsea Proving Ground & Auburn Hills, USA', title: 'Powertrain Validation Engineer', organisation: 'Stellantis (via Teoresi Inc)', dateRange: 'Jan 2025 – Sep 2025', points: ['Designed and executed test campaigns for electric and hybrid vehicle systems.', 'Analyzed large volumes of performance data to diagnose issues and support engineering decisions.'], learned: 'How to turn large, messy validation datasets into clear, defensible engineering decisions under deadline pressure.', roles: [{ title: 'OBD Calibration Engineer', dateRange: 'Aug 2023 – Dec 2024', points: ['Owned end-to-end calibration projects for electrified powertrain systems.', 'Coordinated across multiple engineering disciplines to meet strict release deadlines.'], learned: 'How to own a technical project end to end and keep several disciplines aligned against one deadline.' }] },
+  { id: 'maserati', label: 'Maserati', eyebrow: 'Modena, Italy', title: 'Design Release Engineer — Electronic Brake Module', organisation: 'Maserati (via Teoresi SpA)', dateRange: 'Mar 2022 – Aug 2023', points: ['Led the technical strategy for an electronic brake module.', 'Defined requirements and managed the full supplier relationship lifecycle from concept to production.'], learned: 'How to translate an ambiguous problem into a precise specification, then manage it through to production.' },
+  { id: 'ecoindustria', label: 'Ecoindustria', eyebrow: 'Turin, Italy', title: 'Commissioning Engineer — Freight Cars', organisation: 'Ecoindustria Srl', dateRange: 'May 2021 – Nov 2021', points: ['Managed commissioning of freight rail vehicles.', 'Oversaw technical documentation and on-site testing for safety and performance standards.'], learned: 'How to verify a complex system methodically and document evidence so someone else can trust it.' },
+  { id: 'mechanical-engineering', label: 'Mechanical Eng.', eyebrow: 'Naples, Italy', title: 'BSc in Mechanical Engineering', organisation: 'University of Naples Federico II', dateRange: '2020', points: ['Foundational training in mechanical systems, ahead of a move into automotive validation.'], learned: 'The fundamentals of how physical systems actually behave—the foundation everything after it was built on.' },
 ];
 const defaultIndex = 0;
 ---
@@ -23,6 +23,7 @@ const defaultIndex = 0;
       <ul class="mt-5 max-w-xl space-y-2.5 text-[.95rem] leading-relaxed">
         {item.points.map((point) => <li class="flex gap-3"><span class="mt-1 font-bold" aria-hidden="true">▸</span><span>{point}</span></li>)}
       </ul>
+      {item.learned && <p class="mt-4 max-w-xl text-[.95rem] leading-relaxed"><strong class="font-bold">What I learned:</strong> {item.learned}</p>}
       {item.roles?.map((role) => (
         <div class="mt-6 max-w-xl border-t border-line pt-5">
           <h4 class="text-lg font-bold tracking-[-.01em]">{role.title}</h4>
@@ -30,6 +31,7 @@ const defaultIndex = 0;
           <ul class="mt-3 space-y-2.5 text-[.95rem] leading-relaxed">
             {role.points.map((point) => <li class="flex gap-3"><span class="mt-1 font-bold" aria-hidden="true">▸</span><span>{point}</span></li>)}
           </ul>
+          {role.learned && <p class="mt-4 text-[.95rem] leading-relaxed"><strong class="font-bold">What I learned:</strong> {role.learned}</p>}
         </div>
       ))}
     </article>)}
