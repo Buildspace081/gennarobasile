@@ -1,16 +1,37 @@
 ---
-const experiences = [
-  { id: 'data-science', label: 'Data Science', eyebrow: 'Current · Naples', title: 'MSc in Data Science', organisation: 'University of Naples Federico II', copy: 'Building stronger foundations in statistics, machine learning and software while turning coursework into notebooks and projects.' },
-  { id: 'automotive', label: 'Automotive', eyebrow: 'Previous chapter · Italy & Michigan', title: 'Automotive Validation Engineer', organisation: 'Engineering experience', copy: 'Working with complex physical systems taught me to investigate failures, test assumptions and make decisions from evidence.' },
-  { id: 'buildspace', label: 'Buildspace081', eyebrow: 'Founder · Naples', title: 'Community builder', organisation: 'Buildspace081', copy: 'Creating a local environment where founders, engineers and curious people can meet and turn ideas into real projects.' },
+interface Role { title: string; dateRange: string; points: string[]; }
+interface Experience { id: string; label: string; eyebrow: string; title: string; organisation: string; dateRange: string; points: string[]; roles?: Role[]; }
+
+const experiences: Experience[] = [
+  { id: 'mechanical-engineering', label: 'Mechanical Eng.', eyebrow: 'Naples, Italy', title: 'BSc in Mechanical Engineering', organisation: 'University of Naples Federico II', dateRange: '2012 – 2020', points: ['Foundational training in mechanical systems, ahead of a move into automotive validation.'] },
+  { id: 'ecoindustria', label: 'Ecoindustria', eyebrow: 'Turin, Italy', title: 'Commissioning Engineer — Freight Cars', organisation: 'Ecoindustria Srl', dateRange: 'May 2021 – Nov 2021', points: ['Managed commissioning of freight rail vehicles.', 'Oversaw technical documentation and on-site testing for safety and performance standards.'] },
+  { id: 'maserati', label: 'Maserati', eyebrow: 'Modena, Italy', title: 'Design Release Engineer — Electronic Brake Module', organisation: 'Maserati (via Teoresi SpA)', dateRange: 'Mar 2022 – Aug 2023', points: ['Led the technical strategy for an electronic brake module.', 'Defined requirements and managed the full supplier relationship lifecycle from concept to production.'] },
+  { id: 'stellantis', label: 'Stellantis', eyebrow: 'Chelsea Proving Ground & Auburn Hills, USA', title: 'Powertrain Validation Engineer', organisation: 'Stellantis (via Teoresi Inc)', dateRange: 'Jan 2025 – Sep 2025', points: ['Designed and executed test campaigns for electric and hybrid vehicle systems.', 'Analyzed large volumes of performance data to diagnose issues and support engineering decisions.'], roles: [{ title: 'OBD Calibration Engineer', dateRange: 'Aug 2023 – Dec 2024', points: ['Owned end-to-end calibration projects for electrified powertrain systems.', 'Coordinated across multiple engineering disciplines to meet strict release deadlines.'] }] },
+  { id: 'data-science', label: 'Data Science', eyebrow: 'Naples, Italy', title: 'MSc in Data Science', organisation: 'University of Naples Federico II', dateRange: '2025 – Present', points: ['Statistical learning, machine learning, big data systems and advanced programming.'] },
 ];
 ---
-<div class="experience-tabs grid gap-6 md:grid-cols-[12rem_1fr]" data-experience-tabs>
-  <div role="tablist" aria-label="Experience" aria-orientation="vertical" class="flex gap-2 overflow-x-auto md:flex-col">
-    {experiences.map((item,index) => <button type="button" id={`tab-${item.id}`} role="tab" aria-controls={`panel-${item.id}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1} data-tab={item.id} class="whitespace-nowrap border-l-2 border-line px-4 py-3 text-left font-mono text-xs uppercase text-muted hover:text-ink aria-selected:border-orange aria-selected:bg-[#f5efe3] aria-selected:text-ink">{item.label}</button>)}
+<div class="experience-tabs grid gap-10 md:grid-cols-[13rem_1fr]" data-experience-tabs>
+  <div role="tablist" aria-label="Experience" aria-orientation="vertical" class="flex gap-1 overflow-x-auto md:flex-col">
+    {experiences.map((item,index) => <button type="button" id={`tab-${item.id}`} role="tab" aria-controls={`panel-${item.id}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1} data-tab={item.id} class="whitespace-nowrap border-l-2 border-line px-4 py-3 text-left text-base text-muted hover:text-ink aria-selected:border-blue aria-selected:font-semibold aria-selected:text-ink">{item.label}</button>)}
   </div>
-  <div class="surface min-h-72 p-7">
-    {experiences.map((item,index) => <article id={`panel-${item.id}`} role="tabpanel" aria-labelledby={`tab-${item.id}`} hidden={index !== 0} tabindex="0" data-panel={item.id}><p class="eyebrow text-purple">{item.eyebrow}</p><h3 class="mt-5 text-3xl font-semibold tracking-[-.04em]">{item.title}</h3><p class="mt-2 font-mono text-sm text-muted">{item.organisation}</p><p class="body-copy mt-8 max-w-2xl">{item.copy}</p></article>)}
+  <div class="min-h-72">
+    {experiences.map((item,index) => <article id={`panel-${item.id}`} role="tabpanel" aria-labelledby={`tab-${item.id}`} hidden={index !== 0} tabindex="0" data-panel={item.id}>
+      <h3 class="text-3xl font-bold tracking-[-.03em]">{item.title}</h3>
+      <p class="mt-2 text-lg font-semibold text-blue">{item.organisation}</p>
+      <p class="mt-3 font-mono text-xs uppercase tracking-wide text-muted">{item.dateRange} · {item.eyebrow}</p>
+      <ul class="mt-6 max-w-2xl space-y-3">
+        {item.points.map((point) => <li class="flex gap-3 body-copy"><span class="mt-1 text-blue" aria-hidden="true">▸</span><span>{point}</span></li>)}
+      </ul>
+      {item.roles?.map((role) => (
+        <div class="mt-8 max-w-2xl border-t border-line pt-6">
+          <h4 class="text-xl font-bold tracking-[-.02em]">{role.title}</h4>
+          <p class="mt-2 font-mono text-xs uppercase tracking-wide text-muted">{role.dateRange}</p>
+          <ul class="mt-4 space-y-3">
+            {role.points.map((point) => <li class="flex gap-3 body-copy"><span class="mt-1 text-blue" aria-hidden="true">▸</span><span>{point}</span></li>)}
+          </ul>
+        </div>
+      ))}
+    </article>)}
   </div>
 </div>
 <script>
